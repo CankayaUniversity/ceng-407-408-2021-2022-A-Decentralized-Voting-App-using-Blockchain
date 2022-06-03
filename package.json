@@ -1,0 +1,28 @@
+{
+  "name": "proje",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.1.0",
+    "@sanity/client": "^3.3.1",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.8",
+    "moralis": "^1.8.0",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-moralis": "^1.4.0",
+    "web3": "^1.7.3"
+  },
+  "devDependencies": {
+    "eslint": "8.16.0",
+    "eslint-config-next": "12.1.6"
+  }
+}
