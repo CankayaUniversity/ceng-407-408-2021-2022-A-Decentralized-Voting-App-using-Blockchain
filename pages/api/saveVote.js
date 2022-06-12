@@ -1,18 +1,9 @@
 import { client } from "../../lib/sanity";
 
 const saveVote = async (req, res) => {
+  console.log("----------------", req.body.currentUser);
   try {
-    await client
-      .patch(req.body.currentUser)
-      .setIfMissing({ likes: [] })
-      .insert("after", "votes[-1]", [
-        {
-          _key: `${req.body.likedUser} - ${req.body.currentUser}`,
-          _ref: req.body.votedUser,
-          _type: "reference",
-        },
-      ])
-      .commit();
+    await client.patch(req.body.currentUser).inc({ votes: 1 }).commit();
 
     res.status(200).send({ message: "success" });
   } catch (error) {

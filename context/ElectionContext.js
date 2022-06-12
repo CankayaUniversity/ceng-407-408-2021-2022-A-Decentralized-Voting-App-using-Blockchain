@@ -24,7 +24,6 @@ export const ElectionProvider = ({ children }) => {
       const address = user.get("ethAddress");
       setCurrentAccount(address);
       requestToCreateUserProfile(address, faker.name.findName());
-      //requestToCreateUserProfileChain(faker.name.findName());
     } else {
       setCurrentAccount("");
     }
@@ -45,22 +44,6 @@ export const ElectionProvider = ({ children }) => {
   const disconnectWallet = async () => {
     await Moralis.User.logOut();
     setCurrentAccount("");
-  };
-
-  const requestToCreateUserProfileChain = async (name) => {
-    try {
-      await fetch(`/api/createUserChain`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-        }),
-      });
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   const requestToCreateUserProfile = async (walletAddress, name) => {
@@ -106,20 +89,35 @@ export const ElectionProvider = ({ children }) => {
     }
   };
 
-  const handleVote = async () => {
-    let _id = 0;
+  const handleVote = async (card) => {
+    const vote = {
+      num: 1,
+      candidate: card.walletAddress,
+    };
+
+    const mintData = {
+      walletAddress: card.walletAddress,
+      name: card.name,
+    };
+
     try {
-      await fetch(`/api/saveVoteChain`, {
+      await fetch("/api/saveVote", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          _id: _id,
-        }),
+        body: JSON.stringify(vote),
+      });
+
+      await fetch("/api/mintNFT", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(mintData),
       });
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   };
 

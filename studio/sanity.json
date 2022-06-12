@@ -1,11 +1,11 @@
 {
   "root": true,
-  "api": {
-    "projectId": "b2q0hfuj",
-    "dataset": "production"
-  },
   "project": {
-    "name": "block-vote-project"
+    "name": "block-vote-dapp"
+  },
+  "api": {
+    "projectId": "qro411c8",
+    "dataset": "production"
   },
   "plugins": [
     "@sanity/base",

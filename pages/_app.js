@@ -1,11 +1,12 @@
 import "../styles/globals.css";
+import "../styles/reset.css";
 import { MoralisProvider } from "react-moralis";
 import { ElectionProvider } from "../context/ElectionContext";
 function MyApp({ Component, pageProps }) {
   return (
     <MoralisProvider
-      serverUrl="https://prgvn0sn9kgr.usemoralis.com:2053/server"
-      appId="1P3E2CSZFwYWTV73gyJfunADxKZQ2srNl3Q10yEM"
+      serverUrl="https://hniajrg29hl0.usemoralis.com:2053/server"
+      appId="XlCWN19XOAvAkGJdJahY9Nvud7YvxONtrMxyCvW9"
     >
       <ElectionProvider>
         <Component {...pageProps} />

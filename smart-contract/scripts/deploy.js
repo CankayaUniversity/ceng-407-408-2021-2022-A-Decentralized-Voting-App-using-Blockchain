@@ -1,10 +1,10 @@
 const { ethers } = require("hardhat");
 
 const main = async () => {
-  const electionFactory = await ethers.getContractFactory("Election");
+  const electionFactory = await ethers.getContractFactory("ElectionERC721");
   const ElectionContract = await electionFactory.deploy();
 
-  console.log("Election contract address:", ElectionContract.address);
+  console.log("ELECTION CONTRACT ADDRESS:", ElectionContract.address);
 };
 
 main()

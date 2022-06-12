@@ -1,0 +1,55 @@
+.header {
+  padding: 5rem;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.authButton {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #df7861;
+  color: white;
+}
+
+.authButton:hover {
+  background-color: #ecb390;
+}
+
+.logo {
+  color: #4b8673;
+  font-weight: 200;
+  font-size: 3rem;
+}
+
+.rightMenu {
+  display: flex;
+  align-items: center;
+}
+
+.currentAccount {
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.logout {
+  border: none;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: #df7861;
+  background-color: #ecb390;
+}

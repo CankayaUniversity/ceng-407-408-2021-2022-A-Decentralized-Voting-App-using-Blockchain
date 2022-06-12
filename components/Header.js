@@ -1,7 +1,8 @@
 import React from "react";
-import Image from 'next/image'
 import { useContext } from "react";
 import { ElectionContext } from "../context/ElectionContext";
+
+import header from "../styles/Header.module.css";
 
 const currentAccount = "";
 
@@ -10,35 +11,30 @@ const Header = () => {
     useContext(ElectionContext);
 
   return (
-    <div className="header">
-      <div className="main">
-        <h1>Block-Vote</h1>
+    <div className={header.header}>
+      <div className={header.main}>
+        <h1 className={header.logo}>BlockVote</h1>
 
-        <div className="rightMenu">
+        <div className={header.rightMenu}>
           {currentAccount ? (
             <>
-              <div className="currentAccount">
-                <Image
-                  src={
-                    "https://moralis.io/wp-content/uploads/2021/05/moralisWhiteLogo.svg"
-                  }
-                  alt="moralis"
-                  height={20}
-                  width={20}
-                />
+              <div className={header.currentAccount}>
                 <span className="accountAddress">
                   {currentAccount.slice(0, 6)}...{currentAccount.slice(39)}
                 </span>
               </div>
               <button
-                className="style.authButton"
+                className={header.logout}
                 onClick={() => disconnectWallet()}
               >
                 Logout
               </button>
             </>
           ) : (
-            <button className="authButton" onClick={() => connectWallet()}>
+            <button
+              className={header.authButton}
+              onClick={() => connectWallet()}
+            >
               Login
             </button>
           )}
